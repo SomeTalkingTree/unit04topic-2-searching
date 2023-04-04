@@ -36,4 +36,19 @@ public class StringListSearchTest {
         actualOutput = StringListSearch.orderedSearch(inputItems, inputTerm);
         assertEquals(expectedOutput, actualOutput);
     }
+
+    @Test
+    public void testingorderedBinarySearch(){
+        ArrayList<String> inputItems;
+        String inputTerm;
+        int expectedOutput;
+        int actualOutput;
+
+        // some positive numbers
+        inputItems = new ArrayList<>(Arrays.asList("Apple", "fjdsaifjoajgoijas", "Donnut", "food","gdsahgjdsahgkjsag","dsfjjashgkjahgkdshg","sjfhksahfkjsahfkhsa","something"));
+        inputTerm = "something";
+        expectedOutput = 7;
+        actualOutput = StringListSearch.orderedBinarySearch(inputItems, inputTerm);
+        assertEquals(expectedOutput, actualOutput);
+    }
 }

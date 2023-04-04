@@ -5,10 +5,13 @@ public class StringListSearch {
 
     public static int unorderedSearch(ArrayList<String> items, String term) {
         int indexofnums = -1;
+        int order =0;
         for(String text:items){
-            if(term==text){
-                indexofnums= items.indexOf(term);
+            boolean tof1 = text.equals(term);
+            if(tof1){
+                indexofnums= order;
             }
+            order++;
         }
         return indexofnums;
     }
@@ -27,7 +30,27 @@ public class StringListSearch {
         return -1;
     }
 
-    
+    public static int orderedBinarySearch(ArrayList<String> items, String term){
+        ArrayList<String> Listy; 
+        Listy= new ArrayList<String>();
+        ArrayList<Integer> places=new ArrayList<>();
+        for(int looping = 0;looping<items.size();looping++){
+            int compared = items.get(looping).compareTo(term);
+            if(compared==0){
+                Listy.add(items.get(looping));
+                places.add(looping);
+            }
+        }
+        for(int looping=0;looping<Listy.size();looping++){
+            if(!(Listy.get(looping).equals(term))){
+                Listy.remove(looping);
+                places.remove(looping);
+            }
+        }
+        places.add(-1);
+        return places.get(0);
+
+    }    
     
 
 
@@ -39,10 +62,13 @@ public class StringListSearch {
     public static void main(String[] args) {
         ArrayList<String> listy = new ArrayList<>(Arrays.asList("a", "i", "t", "m","f","p"));
         String text = "a";
+
         
         int num2 =05657575;
         for(String text1:listy){
             num2 = text1.compareTo(text);System.out.println(num2);
+
+
         }
         //int num = listy.indexOf(text);
         
